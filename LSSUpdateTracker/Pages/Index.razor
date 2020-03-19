@@ -2,6 +2,24 @@
 
 <h1>ILC - LSS Update Tracker</h1>
 
-Welcome to your new app.
+<form>
+    <div class="form-group">
+        <label for="softwareVersionInput">Software Version*</label>
+        <input type="text" class="form-control" id="softwareVersionInput" placeholder="Enter version" required>
+        <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+    </div>
+    <div class="form-group">
+        <label for="softwareVersionInput">Software Version</label>
+        <input type="text" class="form-control" id="softwareVersionInput" placeholder="Enter version">
+        <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <small id="requiredText" class="form-text text-muted">* indicates a required field</small>
+
+</form>
 
 <SurveyPrompt Title="How is Blazor working for you?" />
