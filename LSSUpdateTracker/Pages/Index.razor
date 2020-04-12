@@ -1,25 +1,83 @@
 ﻿@page "/"
 
 <h1>ILC - LSS Update Tracker</h1>
-
+<p>Add a release below</p>
 <form>
     <div class="form-group">
         <label for="softwareVersionInput">Software Version*</label>
-        <input type="text" class="form-control" id="softwareVersionInput" placeholder="Enter version" required>
-        <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+        <input @bind="SoftwareVersionInput" type="text" class="form-control" id="softwareVersionInput" placeholder="Enter version" required> 
+    </div>
+
+    <!--TODO: Implement data picker functionality-->
+    <div class="form-group">
+        <label for="softwareStartInput">Start Date of Development*</label>
+        <input @bind="SoftwareStartInput" type="text" class="form-control" id="softwareStartInput" placeholder="YYYY-MM-DD" required>
     </div>
     <div class="form-group">
-        <label for="softwareVersionInput">Software Version</label>
-        <input type="text" class="form-control" id="softwareVersionInput" placeholder="Enter version">
-        <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+        <label for="softwareEndInput">End Date of Development*</label>
+        <input @bind="SoftwareEndInput" type="text" class="form-control" id="softwareEndInput" placeholder="YYYY-MM-DD" required>
     </div>
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <div class="form-group">
+        <label for="testingStartInput">Start Date of Testing*</label>
+        <input @bind="TestingStartInput" type="text" class="form-control" id="testingStartInput" placeholder="YYYY-MM-DD" required>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+        <label for="testingEndInput">End Date of Testing*</label>
+        <input @bind="TestingEndInput" type="text" class="form-control" id="testingEndInput" placeholder="YYYY-MM-DD" required>
+    </div>
+
+    <!--TODO: Clarify this section-->
+    <div class="form-group">
+        <label for="deployedDevInput">Date Deployed to Dev</label>
+        <input @bind="DeployedDevInput" type="text" class="form-control" id="deployedDevInput" placeholder="YYYY-MM-DD">
+    </div>
+    <div class="form-group">
+        <label for="deployedStageInput">Date Deployed to Stage</label>
+        <input @bind="DeployedStageInput" type="text" class="form-control" id="deployedStageInput" placeholder="YYYY-MM-DD">
+    </div>
+    <div class="form-group">
+        <label for="scheduledProdInput">Date Scheduled for Production</label>
+        <input @bind="ScheduledProdInput" type="text" class="form-control" id="scheduledProdInput" placeholder="YYYY-MM-DD">
+    </div>
+    <div class="form-group">
+        <label for="deployedProdInput">Date Deployed to Production</label>
+        <input @bind="DeployedProdInput" type="text" class="form-control" id="deployedProdInput" placeholder="YYYY-MM-DD">
+    </div>
+
+    <div class="form-group">
+        <label for="dbScriptInput">DB Script</label>
+        <input @bind="DBScriptInput" type="text" class="form-control" id="dbScriptInput" placeholder="script.sql">
+    </div>
+    <div class="form-group">
+        <label for="notesInput">Notes</label>
+        <textarea @bind="NotesInput" type="text" class="form-control" id="notesInput"></textarea>
+    </div>
+
+    <button @onclick="FormSubmit" type="submit" class="btn btn-primary">Submit</button>
     <small id="requiredText" class="form-text text-muted">* indicates a required field</small>
 
 </form>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<!--<SurveyPrompt Title="How is Blazor working for you?" />-->
+@code {
+    private string SoftwareVersionInput { get; set; }
+    private string SoftwareStartInput { get; set; }
+    private string SoftwareEndInput { get; set; }
+    private string TestingStartInput { get; set; }
+    private string TestingEndInput { get; set; }
+    private string DeployedDevInput { get; set; }
+    private string DeployedStageInput { get; set; }
+    private string ScheduledProdInput { get; set; }
+    private string DeployedProdInput { get; set; }
+    private string DBScriptInput { get; set; }
+    private string NotesInput { get; set; }
+
+    private void FormSubmit()
+    {
+        Console.WriteLine("Form submitted");
+        Console.WriteLine("SoftwareVersionInput: " + SoftwareVersionInput);
+        Console.WriteLine("NotesInput: " + NotesInput); 
+    }
+
+}
+
